@@ -3,8 +3,8 @@
 #
 
 #to build part of this file look at
-#  ../libmediainfo_0.7.81/MediaInfoLib/Project/CMake/CMakeLists.txt
-#  ../libmediainfo_0.7.81/ZenLib/Project/CMake/CMakeLists.txt
+#  ../libmediainfo_0.7.82/MediaInfoLib/Project/CMake/CMakeLists.txt
+#  ../libmediainfo_0.7.82/ZenLib/Project/CMake/CMakeLists.txt
 #
 # section:
 #  set(ZenLib_SRCS
@@ -16,7 +16,7 @@
 #
 
 # jni\
-# libmediainfo_0.7.81\
+# libmediainfo_0.7.82\
 #       MediaInfo\ - from MediaInfoCLI
 #       MediaInfoLib\ - From MediaInfo_Allinclusive
 #       ZenLib\ - From MediaInfo_Allinclusive
@@ -25,7 +25,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-MEDIAINFO_DIR        = ../libmediainfo_0.7.81
+MEDIAINFO_DIR        = ../libmediainfo_0.7.82
 LIBZEN_INC_DIR       = $(MEDIAINFO_DIR)/ZenLib/Source
 LIBZEN_SRC_DIR       = $(MEDIAINFO_DIR)/ZenLib/Source/ZenLib
 LIBMEDIAINFO_INC_DIR = $(MEDIAINFO_DIR)/MediaInfoLib/Source
@@ -336,6 +336,9 @@ LOCAL_C_INCLUDES        += $(LOCAL_PATH)/$(MEDIAINFO_DIR)/MediaInfo/Source
 LOCAL_CFLAGS            += -Wall $(USER_CFLAGS)
 LOCAL_LDLIBS            := -llog -lz -lm
 LOCAL_CXXFLAGS          += -DUNICODE
+
+#http://stackoverflow.com/questions/12598933/ndk-build-createprocess-make-e-87-the-parameter-is-incorrect
+LOCAL_SHORT_COMMANDS     = true
 
 #include $(BUILD_SHARED_LIBRARY)
 include $(BUILD_EXECUTABLE)
